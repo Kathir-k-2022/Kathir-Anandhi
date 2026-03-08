@@ -479,7 +479,27 @@
     </div>
 </section>
 
-
+<script>
+function copyUPI() {
+    const el = document.createElement('textarea');
+    el.value = "kathir.vtv@okhdfcbank";
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+    
+    // Change button text temporarily to show it worked
+    const btn = event.currentTarget;
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+    btn.style.backgroundColor = "#28a745";
+    
+    setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.style.backgroundColor = "var(--accent-color)";
+    }, 2000);
+}
+</script>
 
 
 
