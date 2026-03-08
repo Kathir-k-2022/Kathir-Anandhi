@@ -444,31 +444,20 @@
             <div class="card p-4 shadow-sm" style="border: 2px dashed var(--accent-color); background-color: #fffaf0; border-radius: 20px;">
                 <div class="card-body">
                     <h2 class="section-title" style="font-size: 1.5rem; margin-bottom: 20px;">Wedding Gift</h2>
-                    <p class="mb-4 text-muted">Your presence is our greatest gift. If you wish to honor us with a token of love, you may do so here:</p>
+                    <p class="mb-4 text-muted">Bless the couple with a token of love via any UPI app (GPay, Paytm, PhonePe, etc.)</p>
                     
-                    <div class="row g-3">
-                        <div class="col-md-6">
-                            <a href="googlegpay://pay?pa=kathir.vtv@okhdfcbank&pn=Kathir&cu=INR" 
-                               class="btn py-3 w-100 shadow-sm" 
-                               style="background-color: #ffffff; color: #5f6368; border: 1px solid #dadce0; font-weight: bold; border-radius: 12px; display: block; text-decoration: none;">
-                               <img src="https://www.gstatic.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="GPay" height="18" class="me-2 align-middle"> Pay with GPay
-                            </a>
-                        </div>
-
-                        <div class="col-md-6">
-                            <a href="paytmmp://pay?pa=kathir.vtv@okhdfcbank&pn=Kathir&cu=INR" 
-                               class="btn py-3 w-100 shadow-sm" 
-                               style="background-color: #00BAF2; color: white; font-weight: bold; border-radius: 12px; display: block; text-decoration: none;">
-                               <i class="fas fa-wallet me-2"></i> Pay with Paytm
-                            </a>
-                        </div>
-                    </div>
+                    <a href="upi://pay?pa=kathir.vtv@okhdfcbank&pn=Kathir&cu=INR" 
+                       class="btn btn-gold btn-lg w-100 py-3 shadow" 
+                       style="font-size: 1.2rem; border-radius: 12px; border: none; display: block; text-decoration: none;">
+                       <i class="fas fa-paper-plane me-2"></i> Open UPI App to Pay
+                    </a>
 
                     <div class="mt-4 pt-3 border-top">
-                        <p class="small text-muted mb-2">If the buttons don't open your app, copy the ID manually:</p>
-                        <div class="d-flex justify-content-center align-items-center bg-white p-2 rounded border mx-auto" style="max-width: 350px;">
-                            <code id="upiId" style="color: var(--primary-color); font-weight: bold; font-size: 0.9rem;">kathir.vtv@okhdfcbank</code>
-                            <button onclick="copyUPI()" class="btn btn-sm ms-3" style="background-color: var(--accent-color); color: white; border-radius: 6px;">
+                        <p class="small text-muted mb-2">iPhone users: If the link opens the wrong app, please copy the ID below and paste it in your preferred app.</p>
+                        
+                        <div class="input-group mb-3 mx-auto" style="max-width: 400px;">
+                            <span class="input-group-text bg-white" style="font-family: monospace; font-weight: bold; color: var(--primary-color);">kathir.vtv@okhdfcbank</span>
+                            <button class="btn btn-gold" type="button" onclick="copyUPI(this)">
                                 <i class="far fa-copy"></i> Copy
                             </button>
                         </div>
@@ -480,24 +469,20 @@
 </section>
 
 <script>
-function copyUPI() {
-    const el = document.createElement('textarea');
-    el.value = "kathir.vtv@okhdfcbank";
-    document.body.appendChild(el);
-    el.select();
-    document.execCommand('copy');
-    document.body.removeChild(el);
-    
-    // Change button text temporarily to show it worked
-    const btn = event.currentTarget;
-    const originalText = btn.innerHTML;
-    btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
-    btn.style.backgroundColor = "#28a745";
-    
-    setTimeout(() => {
-        btn.innerHTML = originalText;
-        btn.style.backgroundColor = "var(--accent-color)";
-    }, 2000);
+function copyUPI(btn) {
+    const upi = "kathir.vtv@okhdfcbank";
+    navigator.clipboard.writeText(upi).then(() => {
+        const originalHtml = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-check"></i>';
+        btn.classList.replace('btn-gold', 'btn-success');
+        
+        setTimeout(() => {
+            btn.innerHTML = originalHtml;
+            btn.classList.replace('btn-success', 'btn-gold');
+        }, 2000);
+        
+        alert("UPI ID Copied! Please paste it in GPay or Paytm.");
+    });
 }
 </script>
 
