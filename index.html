@@ -438,38 +438,58 @@
         </div>
 
 
-
 <section class="container mb-5">
     <div class="row justify-content-center">
         <div class="col-lg-6 col-md-8 text-center">
             <div class="card p-4 shadow-sm" style="border: 2px dashed var(--accent-color); background-color: #fffaf0; border-radius: 20px;">
                 <div class="card-body">
                     <h2 class="section-title" style="font-size: 1.5rem; margin-bottom: 20px;">Wedding Gift</h2>
-                    <p class="mb-4 text-muted">Bless the couple with a token of love via your preferred app:</p>
+                    <p class="mb-4 text-muted">Your blessings are our greatest gift. If you wish to send a token of love, you may do so via UPI.</p>
                     
-                    <div class="d-grid gap-3">
-                        <a href="upi://pay?pa=YOUR_UPI_ID@bank&pn=Kathir&cu=INR&mode=02" 
-                           class="btn py-3 shadow-sm" 
-                           style="background-color: #ffffff; color: #5f6368; border: 1px solid #dadce0; font-weight: bold; border-radius: 10px;">
-                           <img src="https://www.gstatic.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" height="20" class="me-2"> Pay
-                        </a>
+                    <a href="upi://pay?pa=kathir.vtv@okhdfcbank&pn=Kathir&cu=INR" 
+                       class="btn btn-gold btn-lg w-100 py-3 shadow" 
+                       style="font-size: 1.2rem; border-radius: 12px; letter-spacing: 1px;">
+                       <i class="fas fa-paper-plane me-2"></i> Send Gift via UPI
+                    </a>
 
-                        <a href="upi://pay?pa=YOUR_UPI_ID@bank&pn=Kathir&cu=INR&mode=02" 
-                           class="btn py-3 shadow-sm" 
-                           style="background-color: #00BAF2; color: white; font-weight: bold; border-radius: 10px;">
-                           <i class="fas fa-wallet me-2"></i> Pay with Paytm
-                        </a>
+                    <div class="mt-4">
+                        <p class="small text-muted mb-2">Supported Apps:</p>
+                        <div class="d-flex justify-content-center gap-3 opacity-75">
+                            <img src="https://www.gstatic.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" height="15" alt="GPay">
+                            <span class="fw-bold text-primary" style="font-size: 0.8rem;">Paytm</span>
+                            <span class="fw-bold text-purple" style="font-size: 0.8rem; color: #5f259f;">PhonePe</span>
+                        </div>
                     </div>
-                    
-                    <p class="mt-4 x-small text-muted" style="font-size: 0.8rem;">
-                        <i class="fas fa-info-circle me-1"></i> 
-                        Please ensure you have the app installed on this mobile device.
-                    </p>
+
+                    <div class="mt-4 pt-3 border-top">
+                        <p class="small text-muted mb-1">Or copy UPI ID manually:</p>
+                        <div class="d-flex justify-content-center align-items-center bg-white p-2 rounded border">
+                            <code id="upiId" style="color: var(--primary-color); font-weight: bold;">kathir.vtv@okhdfcbank</code>
+                            <button onclick="copyUPI()" class="btn btn-sm ms-3" style="background-color: var(--accent-color); color: white;">
+                                <i class="far fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<script>
+function copyUPI() {
+  const el = document.createElement('textarea');
+  el.value = "kathir.vtv@okhdfcbank";
+  document.body.appendChild(el);
+  el.select();
+  document.execCommand('copy');
+  document.body.removeChild(el);
+  
+  // Custom alert style to match your theme
+  alert("UPI ID Copied! You can now paste it in any UPI app.");
+}
+</script>
+
 
 
 
