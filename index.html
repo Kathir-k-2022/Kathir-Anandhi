@@ -473,19 +473,7 @@
     </div>
 </section>
 
-<script>
-function copyUPI() {
-  const el = document.createElement('textarea');
-  el.value = "kathir.vtv@okhdfcbank";
-  document.body.appendChild(el);
-  el.select();
-  document.execCommand('copy');
-  document.body.removeChild(el);
-  
-  // Custom alert style to match your theme
-  alert("UPI ID Copied! You can now paste it in any UPI app.");
-}
-</script>
+
 
 
 
@@ -607,6 +595,20 @@ function copyUPI() {
             });
         });
     </script>
+    <script>
+function copyUPI() {
+  const el = document.createElement('textarea');
+  el.value = "kathir.vtv@okhdfcbank";
+  document.body.appendChild(el);
+  el.select();
+  document.execCommand('copy');
+  document.body.removeChild(el);
+  
+  // Custom alert style to match your theme
+  alert("UPI ID Copied! You can now paste it in any UPI app.");
+}
+</script>
+    
 </body>
 
 </html>
