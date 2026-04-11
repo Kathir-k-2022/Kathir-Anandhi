@@ -438,55 +438,6 @@
         </div>
 
 
-        <section class="container mb-5">
-    <div class="row justify-content-center">
-        <div class="col-lg-8 col-md-10 text-center">
-            <div class="card p-4 shadow-sm" style="border: 2px dashed var(--accent-color); background-color: #fffaf0; border-radius: 20px;">
-                <div class="card-body">
-                    <h2 class="section-title" style="font-size: 1.5rem; margin-bottom: 20px;">Wedding Gift</h2>
-                    <p class="mb-4 text-muted">Bless the couple with a token of love via any UPI app (GPay, Paytm, PhonePe, etc.)</p>
-                    
-                    <a href="upi://pay?pa=kathir.vtv@okhdfcbank&pn=Kathir&cu=INR" 
-                       class="btn btn-gold btn-lg w-100 py-3 shadow" 
-                       style="font-size: 1.2rem; border-radius: 12px; border: none; display: block; text-decoration: none;">
-                       <i class="fas fa-paper-plane me-2"></i> Open UPI App to Pay
-                    </a>
-
-                    <div class="mt-4 pt-3 border-top">
-                        <p class="small text-muted mb-2">iPhone users: If the link opens the wrong app, please copy the ID below and paste it in your preferred app.</p>
-                        
-                        <div class="input-group mb-3 mx-auto" style="max-width: 400px;">
-                            <span class="input-group-text bg-white" style="font-family: monospace; font-weight: bold; color: var(--primary-color);">kathir.vtv@okhdfcbank</span>
-                            <button class="btn btn-gold" type="button" onclick="copyUPI(this)">
-                                <i class="far fa-copy"></i> Copy
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<script>
-function copyUPI(btn) {
-    const upi = "kathir.vtv@okhdfcbank";
-    navigator.clipboard.writeText(upi).then(() => {
-        const originalHtml = btn.innerHTML;
-        btn.innerHTML = '<i class="fas fa-check"></i>';
-        btn.classList.replace('btn-gold', 'btn-success');
-        
-        setTimeout(() => {
-            btn.innerHTML = originalHtml;
-            btn.classList.replace('btn-success', 'btn-gold');
-        }, 2000);
-        
-        alert("UPI ID Copied! Please paste it in GPay or Paytm.");
-    });
-}
-</script>
-
-
 
         <footer class="text-center py-5">
             <h3 style="font-family: 'Cinzel', serif; color: var(--primary-color);">Thank you in advance for your presence!</h3>
